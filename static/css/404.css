@@ -1,0 +1,11 @@
+.content_404 {
+    margin: 0 0 50px 0;
+}
+
+.content_404_image {
+    width: 900px;
+    height: 506px;
+    background-image: url(/static/images/404.jpg);
+    background-size: cover;
+    background-position: 50%;
+}

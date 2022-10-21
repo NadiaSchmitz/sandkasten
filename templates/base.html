@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diary.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_item.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+    <script>
+        $(document).ready(function(){
+          $('.bxslider').bxSlider({
+            mode: 'fade',
+            captions: false,
+            auto: true,
+            pager: false,
+            controls: false
+          });
+        });
+    </script>
+</head>
+<body>
+    <section class="page_wrapper">
+        <header>
+            <div class="header_wrapper page_pattern">
+                <a class="project_name" href="/">
+                    <div class="project_logo"></div>
+                    <p class="first_line">Sandkasten</p>
+                </a>
+                <div class="project_nav">
+                    <nav class="project_nav_wrapper">
+
+                        {%- block mainmenu -%}
+                            <ul>
+                                {% for menu_item in menu -%}
+                                    <li>
+                                        <a href="{{menu_item.url}}">
+                                            {{menu_item.name}}
+                                        </a>
+                                    </li>
+                                {% endfor -%}
+                            </ul>
+                        {% endblock mainmenu -%}
+
+
+
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section class="page_body">
+            <div class="content">
+                    {% block body %}{% endblock %}
+            </div>
+        </section>
+        <footer>
+            <div class="footer_wrapper page_pattern">
+                <p>Das Projekt wurde nur zu Bildungszwecken erstellt</p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

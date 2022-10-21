@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Diary
+{% endblock %}
+
+{% block body %}
+
+<div class="content_body page_pattern">
+    <h1 class="content_header">Tagebuch</h1>
+    <div class="posts_wrapper">
+        <div class="post_item">
+            <div class="post_item_header">
+                <div class="post_item_title standart_text bold_text">
+                    {{ posts[0].title }}
+                </div>
+            </div>
+            <div class="post_item_body standart_text">
+                {{ posts[0].text }}
+            </div>
+            <div class="post_item_link">
+                {{ posts[0].link }}
+            </div>
+            <div class="post_item_link">
+                {{ posts[0].date }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
