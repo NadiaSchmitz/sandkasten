@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Anmeldung
+{% endblock %}
+
+{% block body %}
+
+<div class="content_body page_pattern">
+    <h1 class="content_header">Anmeldung</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+    <form action="" method="post" class="">
+        <p class="standart_text">Fügen Sie die E-Mail hinzu</p>
+        <input id="email" type="email" class="standart_text" name="email" type="text" placeholder="E-Mail hinzufügen" autofocus>
+        <p class="standart_text">Fügen Sie das Passwort hinzu</p>
+        <input id="password" type="password" class="standart_text" name="password" type="text" placeholder="Passwort hinzufügen">
+        <a href="{{ url_for('register_page.html') }}">Registration</a>
+        <input type="submit" class="button_page button_page_left" value="Speichern">
+    </form>
+</div>
+
+{% endblock %}
