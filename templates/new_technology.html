@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Neue Technologie
+{% endblock %}
+
+{% block body %}
+
+<div class="content_body page_pattern">
+    <h1 class="content_header">Neue Technologie</h1>
+    <div class="form_wrapper">
+        <form action="" method="post">
+            <p class="standart_text">Fügen Sie den Titel hinzu</p>
+            <input id="technology_titel" class="standart_text" name="title" type="text" placeholder="Titel hinzufügen" autofocus>
+            <p class="standart_text">Fügen Sie den Link für Logo hinzu</p>
+            <input id="technology_logo" class="standart_text" name="logo" type="text" placeholder="Link hinzufügen">
+            <p class="standart_text">Fügen Sie den Text hinzu</p>
+            <textarea id="technology_description" class="standart_text" name="description" placeholder="Text hinzufügen"></textarea>
+            <p class="standart_text">Fügen Sie den Link hinzu</p>
+            <input id="technology_link" class="standart_text" name="link" type="text" placeholder="Link hinzufügen (Optional)">
+            <input type="submit" class="button_page button_page_left" value="Speichern">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

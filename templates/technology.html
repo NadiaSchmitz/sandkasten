@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Technologie
+{% endblock %}
+
+{% block body %}
+
+<div class="content_body page_pattern">
+    <h1 class="content_header">Technologie</h1>
+    <div class="technology_wrapper">
+
+        {% for item in technologies %}
+
+            <div class="technology_item">
+                <div class="technology_item_header">
+                    <div class="technology_item_logo standart_text">
+                        <img src="{{ item.logo }}" alt="{{ item.title }}"/>
+                    </div>
+                    <div class="technology_item_title standart_text bold_text">
+                        {{ item.title }}
+                    </div>
+                </div>
+                <div class="technology_item_body standart_text technology_item_description">
+                    {{ item.description }}
+                </div>
+                <div class="technology_item_link standart_text">
+                    <a href="{{ item.link }}" class="standart_text bold_text technology_item_link">{{ item.title }}</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

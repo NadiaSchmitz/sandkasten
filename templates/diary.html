@@ -12,17 +12,17 @@ Diary
         <div class="post_item">
             <div class="post_item_header">
                 <div class="post_item_title standart_text bold_text">
-                    {{ posts[0].title }}
+                    {{ posts[1].title }}
                 </div>
             </div>
             <div class="post_item_body standart_text">
-                {{ posts[0].text }}
+                {{ posts[1].text }}
             </div>
-            <div class="post_item_link">
-                {{ posts[0].link }}
+            <div class="post_item_link standart_text">
+                <a href="{{ posts[1].link }}" class="standart_text">{{ posts[1].link }}</a>
             </div>
-            <div class="post_item_link">
-                {{ posts[0].date }}
+            <div class="post_item_date standart_text bold_text">
+                {{ posts[1].date }}
             </div>
         </div>
     </div>
