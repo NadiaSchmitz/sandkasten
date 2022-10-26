@@ -1,5 +1,7 @@
 from flask import render_template, url_for, request, redirect, session, flash
-from flask_login import login_required, logout_user, login_user
+
+from flask_login import current_user, login_required, logout_user, login_user
+
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from sandkasten_package import app, db
@@ -51,21 +53,16 @@ def page_not_found(e):
 def login():
     email = request.form.get('email')
     password = request.form.get('password')
-
     if email and password:
         user = User.query.filter_by(email=email).first()
-
         if user and check_password_hash(user.password, password):
             login_user(user)
-
             next_page = request.args.get('next')
-
             return redirect(next_page)
         else:
             flash('E-Mail oder Passwort ist nicht korrekt. Versuchen Sie bitte wieder.')
     else:
         flash('Fühlen Sie bitte die Felder E-Mail und Passwort')
-
     return render_template('login_page.html', title='Anmeldung', menu=menu)
 
 
@@ -74,7 +71,6 @@ def register():
     email = request.form.get('email')
     password = request.form.get('password')
     password_retype = request.form.get('password_retype')
-
     if request.method == 'POST':
         if not (login or password or password_retype):
             flash('Füllen Sie alle Felder korrekt.')
@@ -82,12 +78,10 @@ def register():
             flash('Passwörter sind nicht gleich.')
         else:
             password_hash = generate_password_hash(password)
-            new_user = User(email=email, password=password_hash)
+            new_user = User(email=email, password=password_hash, role='user')
             db.session.add(new_user)
             db.session.commit()
-
             return redirect(url_for('login'))
-
     return render_template('register_page.html', title='Registrieren', menu=menu)
 
 
@@ -105,6 +99,11 @@ def redirect_to_login(response):
 
     return response
 
+
+@app.route('/users')
+def users():
+    users = User.query.all()
+    return render_template('users.html', title='Users', users=users, menu=menu)
 
 
 @app.route('/new-technology', methods=['POST', 'GET'])

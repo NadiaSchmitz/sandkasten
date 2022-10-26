@@ -1,22 +1,23 @@
 from flask_login import UserMixin
 
 from datetime import datetime
-from sandkasten_package import db, manager
+
+from sandkasten_package import db, login
 
 
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(128), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    #role = db.Column(db.String(100), nullable=False)
+    role = db.Column(db.String(100), nullable=False)
 
-    #def __repr__(self):
-        #return '<User %r>' % self.id
+    # def __repr__(self):
+    # return f"User('{self.email}', '{self.password}', '{self.role}'')"
 
 
-@manager.user_loader
-def load_user(id):
-    return User.query.get(id)
+@login.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
 class Post(db.Model):
