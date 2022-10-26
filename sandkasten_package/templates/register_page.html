@@ -19,15 +19,15 @@ Registration
           {% endif %}
         {% endwith %}
 
-    <form action="" method="post" class="">
+    <form action="" method="post" class="login_register">
         <p class="standart_text">Fügen Sie die E-Mail hinzu</p>
         <input id="email" type="email" class="standart_text" name="email" type="text" placeholder="E-Mail hinzufügen" autofocus>
         <p class="standart_text">Fügen Sie das Passwort hinzu</p>
-        <input id="password" type="password" class="standart_text" name="password_1" type="text" placeholder="Passwort hinzufügen">
+        <input id="password" type="password" class="standart_text" name="password" type="text" placeholder="Passwort hinzufügen">
         <p class="standart_text">Bestätigen Sie das Passwort</p>
-        <input id="password_retype" type="password" class="standart_text" name="password_2" type="text" placeholder="Passwort hinzufügen">
-        <a href="{{ url_for('login_page.html') }}">Anmeldung</a>
-        <input type="submit" class="button_page button_page_left" value="Speichern">
+        <input id="password_retype" type="password" class="standart_text" name="password_retype" type="text" placeholder="Passwort hinzufügen">
+        <input type="submit" class="button_page" value="Speichern">
+        <a href="{{ url_for('login') }}" class="link_page">Anmeldung</a>
     </form>
 </div>
 

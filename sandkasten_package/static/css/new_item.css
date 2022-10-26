@@ -1,26 +1,38 @@
 /*
 new_post
 new_project
+register
+login
 */
+
+.login_register {
+    width: 300px;
+}
 
 input {
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid #19a5c8;
+    border: 1px solid #19a5c8;
     font-family: 'Roboto Condensed', sans-serif;
     outline: none;
-    margin: 0 0 30px 0;
-    padding: 12px 20px;
+    margin: 0 0 20px 0;
+    padding: 8px 10px;
 }
 
 input:focus {
-    border: 2px solid #036A82;
+    border: 1px solid #036A82;
 }
 
 input::placeholder {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 14px;
     color: #cccccc;
+}
+
+#email,
+#password,
+#password_retype {
+    width: 300px;
 }
 
 textarea {
@@ -32,8 +44,8 @@ textarea {
     border: 2px solid #19a5c8;
     font-family: 'Roboto Condensed', sans-serif;
     outline: none;
-    margin: 0 0 30px 0;
-    padding: 12px 20px;
+    margin: 0 0 20px 0;
+    padding: 8px 10px;
 }
 
 textarea:focus {

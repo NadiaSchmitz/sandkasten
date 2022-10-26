@@ -70,10 +70,10 @@ header .first_line {
 .project_nav_wrapper ul li a,
 .project_nav_wrapper ul li a:visited {
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     color: #ffffff;
     text-decoration-line: none;
-    padding: 10px 20px 10px 20px;
+    padding: 10px;
     -webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
     -ms-transition: all 500ms ease;
@@ -84,6 +84,22 @@ header .first_line {
 .project_nav_wrapper ul li a:hover,
 .project_nav_wrapper ul li a:active {
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+#authorization {
+    color: #19a5c8;
+    background-color: #ffffff;
+    border-radius: 1px;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+#authorization:hover,
+#authorization:active {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .page_body {
@@ -129,11 +145,12 @@ header .first_line {
     line-height: 22px;
     color: #ffffff;
     border: none;
+    border-radius: 1px;
     outline: none;
     text-align: center;
     text-decoration: none;
     background-color: #19a5c8;
-    margin: 0;
+    margin: 20px 0 20px 0;
     padding: 10px 20px 10px 20px;
     -webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -151,6 +168,11 @@ header .first_line {
     margin-left: auto;
 }
 
+.link_page {
+    color: #19a5c8;
+    font-weight: 700;
+}
+
 footer {
     background-color: #036A82;
 }
@@ -162,6 +184,6 @@ footer {
 }
 
 footer p {
-
+    color: #ffffff;
 }
 

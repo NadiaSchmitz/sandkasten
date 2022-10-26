@@ -1,15 +1,17 @@
-from flask import render_template, url_for, request, redirect, session
+from flask import render_template, url_for, request, redirect, session, flash
+from flask_login import login_required, logout_user, login_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from sandkasten_package import app, db
-from sandkasten_package.models import Post, Project, Technology
+from sandkasten_package.models import User, Post, Project, Technology
 
 
-menu = [{'name': 'Über die Webseite', 'url': '/about'},
+menu = [{'name': 'Über mich', 'url': '/about'},
         {'name': 'Projekte', 'url': '/projects'},
         {'name': 'Technologie', 'url': '/technology'},
         {'name': 'Tagebuch', 'url': '/diary'},
-        {'name': 'Anmeldung', 'url': '/login'},
-        {'name': 'Registration', 'url': '/register'}]
+        {'name': 'Anmelden', 'url': '/login', 'id': 'authorization'},
+        {'name': 'Registrieren', 'url': '/register', 'id': 'authorization'}]
 
 
 @app.route('/')
@@ -47,37 +49,66 @@ def page_not_found(e):
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    email = request.form['email']
-    password = request.form['password']
+    email = request.form.get('email')
+    password = request.form.get('password')
 
     if email and password:
         user = User.query.filter_by(email=email).first()
-        if check_password_hash(user.password, password):
+
+        if user and check_password_hash(user.password, password):
             login_user(user)
 
             next_page = request.args.get('next')
 
-            redirect(next_page)
+            return redirect(next_page)
         else:
             flash('E-Mail oder Passwort ist nicht korrekt. Versuchen Sie bitte wieder.')
     else:
         flash('Fühlen Sie bitte die Felder E-Mail und Passwort')
-        return render_template('register.html')
 
     return render_template('login_page.html', title='Anmeldung', menu=menu)
 
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-    pass
+    email = request.form.get('email')
+    password = request.form.get('password')
+    password_retype = request.form.get('password_retype')
+
+    if request.method == 'POST':
+        if not (login or password or password_retype):
+            flash('Füllen Sie alle Felder korrekt.')
+        elif password != password_retype:
+            flash('Passwörter sind nicht gleich.')
+        else:
+            password_hash = generate_password_hash(password)
+            new_user = User(email=email, password=password_hash)
+            db.session.add(new_user)
+            db.session.commit()
+
+            return redirect(url_for('login'))
+
+    return render_template('register_page.html', title='Registrieren', menu=menu)
 
 
 @app.route('/logout', methods=['POST', 'GET'])
+@login_required
 def logout():
-    pass
+    logout_user()
+    return redirect(url_for('index'))
+
+
+@app.after_request
+def redirect_to_login(response):
+    if response.status_code == 401:
+        return redirect(url_for('login') + '?next' + request.url)
+
+    return response
+
 
 
 @app.route('/new-technology', methods=['POST', 'GET'])
+@login_required
 def new_technology():
     if request.method == "POST":
         title = request.form['title']
@@ -101,6 +132,7 @@ def new_technology():
 
 
 @app.route('/new-post', methods=['POST', 'GET'])
+@login_required
 def new_post():
     if request.method == "POST":
         title = request.form['title']

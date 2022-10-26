@@ -50,8 +50,8 @@
                             <ul>
                                 {% for menu_item in menu -%}
                                     <li>
-                                        <a href="{{menu_item.url}}">
-                                            {{menu_item.name}}
+                                        <a href="{{ menu_item.url }}" id="{{ menu_item.id }}">
+                                            {{ menu_item.name }}
                                         </a>
                                     </li>
                                 {% endfor -%}
