@@ -1,0 +1,8 @@
+.users_table_header,
+.users_table_item {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    box.sizing: border-box;
+    padding: 5px;
+}

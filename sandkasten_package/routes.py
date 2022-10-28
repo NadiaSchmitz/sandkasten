@@ -1,4 +1,6 @@
-from flask import render_template, url_for, request, redirect, session, flash
+import os
+
+from flask import render_template, url_for, request, redirect, session, flash, send_from_directory
 
 from flask_login import current_user, login_required, logout_user, login_user
 
@@ -12,14 +14,20 @@ menu = [{'name': 'Über mich', 'url': '/about'},
         {'name': 'Projekte', 'url': '/projects'},
         {'name': 'Technologie', 'url': '/technology'},
         {'name': 'Tagebuch', 'url': '/diary'},
-        {'name': 'Anmelden', 'url': '/login', 'id': 'authorization'},
-        {'name': 'Registrieren', 'url': '/register', 'id': 'authorization'}]
+        {'name': 'Anmelden', 'url': '/login', 'class': 'authorization'},
+        {'name': 'Registrieren', 'url': '/register', 'class': 'authorization'}]
 
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Sandkasten', menu=menu)
+    projects = Project.query.all()
+    projects_number = len(projects)
+    technologies = Technology.query.all()
+    technologies_number = len(technologies)
+    posts = Post.query.all()
+    posts_number = len(posts)
+    return render_template('index.html', title='Sandkasten', projects_number=projects_number, technologies=technologies, technologies_number=technologies_number, posts_number=posts_number, menu=menu)
 
 
 @app.route('/about')
@@ -150,3 +158,8 @@ def new_post():
     else:
         print('Post wurde nicht gespeichert')
         return render_template('new_post.html', title='Neues Post', menu=menu)
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')

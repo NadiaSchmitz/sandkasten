@@ -4,6 +4,7 @@ body {
 
 .page_pattern {
     width: 960px;
+    margin: 0 auto;
 }
 
 header {
@@ -86,7 +87,7 @@ header .first_line {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-#authorization {
+.project_nav_wrapper ul li .authorization {
     color: #19a5c8;
     background-color: #ffffff;
     border-radius: 1px;
@@ -97,8 +98,10 @@ header .first_line {
     transition: all 500ms ease;
 }
 
-#authorization:hover,
-#authorization:active {
+.project_nav_wrapper ul li .authorization:hover,
+.project_nav_wrapper ul li .authorization:active,
+.project_nav_wrapper ul li .authorization:visited {
+    color: #19a5c8;
     background-color: rgba(255, 255, 255, 0.8);
 }
 

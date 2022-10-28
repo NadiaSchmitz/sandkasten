@@ -41,7 +41,7 @@ textarea {
     resize: none;
     overflow: hidden;
     box-sizing: border-box;
-    border: 2px solid #19a5c8;
+    border: 1px solid #19a5c8;
     font-family: 'Roboto Condensed', sans-serif;
     outline: none;
     margin: 0 0 20px 0;
@@ -49,7 +49,7 @@ textarea {
 }
 
 textarea:focus {
-    border: 2px solid #036A82;
+    border: 1px solid #036A82;
 }
 
 textarea::placeholder {

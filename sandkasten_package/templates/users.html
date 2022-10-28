@@ -9,11 +9,14 @@ Benutzer
 <div class="content_body page_pattern">
     <h1 class="content_header">Benutzer</h1>
     <div class="users_table">
-
+        <div class="users_table_header users_table_header_email">E-Mail</div>
+        <div class="users_table_header users_table_header_role">Rolle</div>
+        <div class="users_table_header users_table_header_reg_date">Registrationsdatum</div>
         {% for item in users %}
 
-            <p>{{ item.email }}</p>
-            <p>{{ item.role }}</p>
+            <div class="users_table_item users_table_item_email standart_text">{{ item.email }}</div>
+            <div class="users_table_item users_table_item_role standart_text">{{ item.role }}</div>
+            <div class="users_table_item users_table_item_reg_date standart_text">ddmmyyyy</div>
 
         {% endfor %}
 

@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block head %}
+{{ super() }}
+{% endblock %}
+
 {% block title %}
 Home
 {% endblock %}
@@ -38,15 +42,44 @@ Home
         </div>
     </div>
 </div>
-<div class="content_body page_pattern">
-    <div class="statistic_wrapper">
-
+<div class="content_body">
+    <div class="statistic_wrapper page_pattern">
+        <h2 class="block_header"></h2>
+        <div class="statistic_item">
+            <a class="statistic_item_number" href="{{ url_for('projects') }}">
+                {{ projects_number }}
+            </a>
+            <p class="statistic_item_name">Projekte</p>
+        </div>
+        <div class="statistic_item">
+            <a class="statistic_item_number" href="{{ url_for('technology') }}">
+                {{ technologies_number }}
+            </a>
+            <p class="statistic_item_name">Technologie</p>
+        </div>
+        <div class="statistic_item">
+            <a class="statistic_item_number" href="{{ url_for('diary') }}">
+                {{ posts_number }}
+            </a>
+            <p class="statistic_item_name">Posts</p>
+        </div>
     </div>
-    <div class="new_projects">
+    <div class="new_projects_wrapper">
+        <h2 class="block_header"></h2>
+        <div class="new_projects_item">
 
+        </div>
+        <div class="new_projects_item"></div>
+        <div class="new_projects_item"></div>
+        <div class="new_projects_item"></div>
     </div>
-    <div class="technology_cloud">
+    <div class="technology_wrapper page_pattern">
+        {% for item in technologies %}
 
+            <div class="technology_item_logo" style="background-image: url(/{{ item.logo }})"></div>
+
+        {% endfor %}
+        <a href="">Mehr</a>
     </div>
 </div>
 

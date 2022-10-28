@@ -51,3 +51,61 @@
     font-size: 30px;
     opacity: 1;
 }
+
+.statistic_wrapper {
+    padding: 0 0 70px 0;
+}
+
+.block_header {
+
+}
+
+.statistic_item {
+    display: inline-block;
+    vertical-align: top;
+    width: calc((100% - 50px) / 3);
+    box-sizing: border-box;
+    margin: 0 20px 0 0;
+}
+
+.statistic_item:last-of-type {
+    margin: 0;
+}
+
+.statistic_item a {
+    display: block;
+    color: #19a5c8;
+    font-size: 72px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+.statistic_item_name {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.new_projects_item {
+    display: inline-block;
+    vertical-align: top;
+    width: 49,9%;
+}
+
+.technology_wrapper {
+
+}
+
+.technology_wrapper .technology_item_logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 48px;
+    height: 48px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin: 10px;
+}
+

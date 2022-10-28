@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/new_item.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/technology.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -39,7 +40,7 @@
     <section class="page_wrapper">
         <header>
             <div class="header_wrapper page_pattern">
-                <a class="project_name" href="/">
+                <a class="project_name" href="{{ url_for('index') }}">
                     <div class="project_logo"></div>
                     <p class="first_line">Sandkasten</p>
                 </a>
@@ -50,7 +51,7 @@
                             <ul>
                                 {% for menu_item in menu -%}
                                     <li>
-                                        <a href="{{ menu_item.url }}" id="{{ menu_item.id }}">
+                                        <a href="{{ menu_item.url }}" class="{{ menu_item.class }}">
                                             {{ menu_item.name }}
                                         </a>
                                     </li>
