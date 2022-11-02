@@ -8,6 +8,29 @@ Projects
 
 <div class="content_body page_pattern">
     <h1 class="content_header">Projekte</h1>
+    <div class="project_wrapper">
+
+        {% for item in projects %}
+
+            <div class="project_item">
+                <div class="project_item_header">
+                    <div class="technology_item_logo standart_text"
+                         style="background-image: url(/{{ item.capture }})"></div>
+                    <div class="technology_item_title standart_text bold_text">
+                        {{ item.title }}
+                    </div>
+                </div>
+                <div class="technology_item_body standart_text technology_item_description">
+                    {{ item.description_1 }}
+                </div>
+                <div class="technology_item_link standart_text">
+                    <a href="/projects/{{ item.id }}" class="standart_text bold_text technology_item_link">Zum Projekt</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
 </div>
 
 {% endblock %}

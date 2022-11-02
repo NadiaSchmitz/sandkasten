@@ -27,34 +27,60 @@ def index():
     technologies_number = len(technologies)
     posts = Post.query.all()
     posts_number = len(posts)
-    return render_template('index.html', title='Sandkasten', projects_number=projects_number, technologies=technologies, technologies_number=technologies_number, posts_number=posts_number, menu=menu)
+    return render_template('index.html',
+                           title='Sandkasten',
+                           projects_number=projects_number,
+                           technologies=technologies,
+                           technologies_number=technologies_number,
+                           posts_number=posts_number,
+                           menu=menu)
 
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='Über die Webseite', menu=menu)
+    return render_template('about.html',
+                           title='Über die Webseite',
+                           menu=menu)
 
 
 @app.route('/projects')
 def projects():
-    return render_template('projects.html', title='Projekte', menu=menu)
+    projects = Project.query.all()
+    return render_template('projects.html',
+                           title='Projekte',
+                           projects=projects,
+                           menu=menu)
+
+
+@app.route('/projects/<int:id>')
+def project_page(id):
+    project = Project.query.get(id)
+    return render_template('project_page.html', project=project)
 
 
 @app.route('/technology')
 def technology():
     technologies = Technology.query.all()
-    return render_template('technology.html', title='Technology', technologies=technologies, menu=menu)
+    return render_template('technology.html',
+                           title='Technology',
+                           technologies=technologies,
+                           menu=menu)
 
 
 @app.route('/diary')
 def diary():
     posts = Post.query.order_by(Post.date.desc()).all()
-    return render_template('diary.html', title='Tagebuch', posts=posts, menu=menu)
+    return render_template('diary.html',
+                           title='Tagebuch',
+                           posts=posts,
+                           menu=menu)
 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('/404.html', title='Die Seite wurde nicht gefunden', menu=menu), 404
+    return render_template('/404.html',
+                           title='Die Seite wurde nicht gefunden',
+                           menu=menu), 404
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -71,7 +97,9 @@ def login():
             flash('E-Mail oder Passwort ist nicht korrekt. Versuchen Sie bitte wieder.')
     else:
         flash('Fühlen Sie bitte die Felder E-Mail und Passwort')
-    return render_template('login_page.html', title='Anmeldung', menu=menu)
+    return render_template('login_page.html',
+                           title='Anmeldung',
+                           menu=menu)
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -90,7 +118,9 @@ def register():
             db.session.add(new_user)
             db.session.commit()
             return redirect(url_for('login'))
-    return render_template('register_page.html', title='Registrieren', menu=menu)
+    return render_template('register_page.html',
+                           title='Registrieren',
+                           menu=menu)
 
 
 @app.route('/logout', methods=['POST', 'GET'])
@@ -111,7 +141,52 @@ def redirect_to_login(response):
 @app.route('/users')
 def users():
     users = User.query.all()
-    return render_template('users.html', title='Users', users=users, menu=menu)
+    return render_template('users.html',
+                           title='Users',
+                           users=users,
+                           menu=menu)
+
+
+@app.route('/new-project', methods=['POST', 'GET'])
+@login_required
+def new_project():
+    if request.method == "POST":
+        title = request.form['title']
+        capture = request.form['capture']
+        description_1 = request.form['description_1']
+        description_2 = request.form['description_2']
+        description_3 = request.form['description_3']
+        source = request.form['source']
+        github = request.form['github']
+        video_1 = request.form['video_1']
+        video_2 = request.form['video_2']
+        video_3 = request.form['video_3']
+        notice = request.form['notice']
+
+        project = Project(title=title,
+                          capture=capture,
+                          description_1=description_1,
+                          description_2=description_2,
+                          description_3=description_3,
+                          source=source,
+                          github=github,
+                          video_1=video_1,
+                          video_2=video_2,
+                          video_3=video_3,
+                          notice=notice)
+        print('Projekt wurde gespeichert')
+        try:
+            db.session.add(project)
+            db.session.commit()
+            return redirect('/projects')
+        except:
+            return "Es ist ein Fehler aufgetreten."
+
+    else:
+        print('Projekt wurde nicht gespeichert')
+        return render_template('new_project.html',
+                               title='Neues Projekt',
+                               menu=menu)
 
 
 @app.route('/new-technology', methods=['POST', 'GET'])
@@ -123,7 +198,10 @@ def new_technology():
         description = request.form['description']
         link = request.form['link']
 
-        technology = Technology(title=title, logo=logo, description=description, link=link)
+        technology = Technology(title=title,
+                                logo=logo,
+                                description=description,
+                                link=link)
         print('Technologie wurde gespeichert')
         try:
             db.session.add(technology)
@@ -135,7 +213,9 @@ def new_technology():
 
     else:
         print('Technologie wurde nicht gespeichert')
-        return render_template('new_technology.html', title='Neue Technologie', menu=menu)
+        return render_template('new_technology.html',
+                               title='Neue Technologie',
+                               menu=menu)
 
 
 @app.route('/new-post', methods=['POST', 'GET'])
@@ -146,7 +226,9 @@ def new_post():
         text = request.form['text']
         link = request.form['link']
 
-        post = Post(title=title, text=text, link=link)
+        post = Post(title=title,
+                    text=text,
+                    link=link)
         print('Post wurde gespeichert')
         try:
             db.session.add(post)
@@ -157,7 +239,9 @@ def new_post():
             return "Es ist ein Fehler aufgetreten."
     else:
         print('Post wurde nicht gespeichert')
-        return render_template('new_post.html', title='Neues Post', menu=menu)
+        return render_template('new_post.html',
+                               title='Neues Post',
+                               menu=menu)
 
 
 @app.route('/favicon.ico')

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ project.title }}
+{% endblock %}
+
+{% block body %}
+
+<div class="content_body page_pattern">
+    <h1 class="content_header">{{ project.title }}</h1>
+    <div class="project_wrapper">
+        <div class="project_item">
+            <div class="project_item_header"></div>
+            <div class="project_item_body standart_text"
+                 style="background-image: url(/{{ project.capture }})">
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header"></div>
+            <div class="project_item_body standart_text">
+                {{ project.description_1 }}
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header"></div>
+            <div class="project_item_body standart_text">
+                {{ project.description_2 }}
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header"></div>
+            <div class="project_item_body standart_text">
+                {{ project.description_3 }}
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header">Quelle</div>
+            <div class="project_item_body standart_text">
+                {{ project.source }}
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header">GitHub</div>
+            <div class="project_item_body standart_text">
+                {{ project.github }}
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header">Videos</div>
+            <div class="project_item_body">
+                <div class="videos_wrapper">
+                    <div class="video_item">{{ project.video_1}}</div>
+                    <div class="video_item">{{ project.video_2}}</div>
+                    <div class="video_item">{{ project.video_3}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header">Notizen</div>
+            <div class="project_item_body standart_text">
+                {{ project.notice }}
+            </div>
+        </div>
+        <div class="project_item">
+            <div class="project_item_header">Hinzugefügt</div>
+            <div class="project_item_body standart_text">
+                {{ project.date.date() }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

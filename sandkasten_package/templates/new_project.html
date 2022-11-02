@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Neues Projekt
+{% endblock %}
+
+{% block body %}
+
+<div class="content_body page_pattern">
+    <h1 class="content_header">Neues Projekt</h1>
+    <div class="form_wrapper">
+        <form action="" method="post">
+            <p class="standart_text">Fügen Sie den Titel hinzu</p>
+            <input id="project_titel"
+                   class="standart_text"
+                   name="title"
+                   type="text"
+                   placeholder="Titel hinzufügen" autofocus required>
+
+            <p class="standart_text">Fügen Sie den Bild-Link hinzu</p>
+            <input id="project_capture"
+                   class="standart_text"
+                   name="capture"
+                   type="text"
+                   placeholder="Bild-Link hinzufügen" autofocus required>
+
+            <p class="standart_text">Fügen Sie eine Beschreibung hinzu</p>
+            <textarea id="project_description_1"
+                   class="standart_text"
+                   name="description_1"
+                   placeholder="Beschreibung hinzufügen" required></textarea>
+
+            <p class="standart_text">Fügen Sie eine Beschreibung hinzu</p>
+            <textarea id="project_description_2"
+                   class="standart_text"
+                   name="description_2"
+                   placeholder="Beschreibung hinzufügen"></textarea>
+
+            <p class="standart_text">Fügen Sie eine Beschreibung hinzu</p>
+            <textarea id="project_description_3"
+                   class="standart_text"
+                   name="description_3"
+                   placeholder="Beschreibung hinzufügen"></textarea>
+
+            <p class="standart_text">Fügen Sie die Quelle-Link hinzu</p>
+            <input id="project_source"
+                   class="standart_text"
+                   name="source"
+                   type="text"
+                   placeholder="Quelle-Link hinzufügen">
+
+            <p class="standart_text">Fügen Sie den Github-Link hinzu</p>
+            <input id="project_github"
+                   class="standart_text"
+                   name="github"
+                   type="text"
+                   placeholder="Github-Link hinzufügen">
+
+            <p class="standart_text">Fügen Sie den Video-Link hinzu</p>
+            <input id="project_video_1"
+                   class="standart_text"
+                   name="video_1"
+                   type="text"
+                   placeholder="Video-Link hinzufügen">
+
+            <p class="standart_text">Fügen Sie den Video-Link hinzu</p>
+            <input id="project_video_2"
+                   class="standart_text"
+                   name="video_2"
+                   type="text"
+                   placeholder="Video-Link hinzufügen">
+
+            <p class="standart_text">Fügen Sie den Video-Link hinzu</p>
+            <input id="project_video_3"
+                   class="standart_text"
+                   name="video_3"
+                   type="text"
+                   placeholder="Video-Link hinzufügen">
+
+            <p class="standart_text">Fügen Sie Ihre Notizen hinzu</p>
+            <textarea id="project_notice"
+                   class="standart_text"
+                   name="notice"
+                   placeholder="Notizen hinzufügen"></textarea>
+
+            <input type="submit" class="button_page button_page_left" value="Speichern">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

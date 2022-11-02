@@ -34,13 +34,16 @@ class Post(db.Model):
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    description = db.Column(db.Text, nullable=False)
+    capture = db.Column(db.String(200), nullable=False)
+    description_1 = db.Column(db.Text, nullable=False)
+    description_2 = db.Column(db.Text, nullable=False)
+    description_3 = db.Column(db.Text, nullable=False)
     source = db.Column(db.String(300), nullable=True)
     github = db.Column(db.String(300), nullable=True)
     video_1 = db.Column(db.String(300), nullable=True)
     video_2 = db.Column(db.String(300), nullable=True)
     video_3 = db.Column(db.String(300), nullable=True)
-    notice = db.Column(db.String(300), nullable=True)
+    notice = db.Column(db.Text, nullable=True)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):

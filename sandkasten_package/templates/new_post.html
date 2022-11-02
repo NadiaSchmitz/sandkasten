@@ -11,11 +11,23 @@ Neues Post
     <div class="form_wrapper">
         <form action="" method="post">
             <p class="standart_text">Fügen Sie den Titel hinzu</p>
-            <input id="post_titel" class="standart_text" name="title" type="text" placeholder="Titel hinzufügen" autofocus>
+            <input id="post_titel"
+                   class="standart_text"
+                   name="title"
+                   type="text"
+                   placeholder="Titel hinzufügen" autofocus required>
             <p class="standart_text">Fügen Sie den Text hinzu</p>
-            <textarea id="post_body" class="standart_text" name="text" placeholder="Text hinzufügen"></textarea>
+            <textarea id="post_body"
+                      class="standart_text"
+                      name="text"
+                      placeholder="Text hinzufügen" required></textarea>
+
             <p class="standart_text">Fügen Sie den Link hinzu</p>
-            <input id="post_link" class="standart_text" name="link" type="text" placeholder="Link hinzufügen (Optional)">
+            <input id="post_link"
+                   class="standart_text"
+                   name="link"
+                   type="text"
+                   placeholder="Link hinzufügen" required>
             <input type="submit" class="button_page button_page_left" value="Speichern">
         </form>
     </div>
