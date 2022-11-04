@@ -45,7 +45,7 @@ def about():
 
 @app.route('/projects')
 def projects():
-    projects = Project.query.all()
+    projects = Project.query.order_by(Project.date.desc()).all()
     return render_template('projects.html',
                            title='Projekte',
                            projects=projects,
@@ -55,7 +55,7 @@ def projects():
 @app.route('/projects/<int:id>')
 def project_page(id):
     project = Project.query.get(id)
-    return render_template('project_page.html', project=project)
+    return render_template('project_page.html', project=project, menu=menu)
 
 
 @app.route('/technology')
@@ -156,6 +156,9 @@ def new_project():
         description_1 = request.form['description_1']
         description_2 = request.form['description_2']
         description_3 = request.form['description_3']
+        description_4 = request.form['description_4']
+        description_5 = request.form['description_5']
+        description_6 = request.form['description_6']
         source = request.form['source']
         github = request.form['github']
         video_1 = request.form['video_1']
@@ -168,6 +171,9 @@ def new_project():
                           description_1=description_1,
                           description_2=description_2,
                           description_3=description_3,
+                          description_4=description_4,
+                          description_5=description_5,
+                          description_6=description_6,
                           source=source,
                           github=github,
                           video_1=video_1,

@@ -1,0 +1,16 @@
+.single_page_item {
+    margin: 0 0 30px 0;
+}
+
+.single_page_item_header {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.single_page_item_image {
+    height: 500px;
+    background-size: cover;
+    background-position: 50% 100%;
+    margin: 0 0 50px 0;
+}

@@ -120,7 +120,7 @@ header .first_line {
     margin: 0 0 50px 0;
 }
 
-.standart_text {
+.standard_text {
     font-size: 16px;
     line-height: 24px;
 }
@@ -131,6 +131,18 @@ header .first_line {
 
 .bold_text {
     font-weight: 700;
+}
+
+.align_right {
+    text-align: right;
+}
+
+.align_justify {
+    text-align: justify;
+}
+
+ul li {
+    margin: 0 0 5px 20px;
 }
 
 .content_body {
