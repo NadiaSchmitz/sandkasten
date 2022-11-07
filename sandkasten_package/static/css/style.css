@@ -125,6 +125,10 @@ header .first_line {
     line-height: 24px;
 }
 
+.comment_text {
+    color: #19a5c8;
+}
+
 .white_text {
     color: #ffffff;
 }

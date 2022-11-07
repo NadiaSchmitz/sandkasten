@@ -11,78 +11,90 @@
     <div class="single_page_wrapper">
         <div class="single_page_item">
             <h2 class="single_page_item_header"></h2>
-            <div class="single_page_item_body single_page_item_image"
+            <div class="single_page_item_body single_page_item_capture"
                  style="background-image: url(/{{ project.capture }})">
             </div>
         </div>
+
+        <h2 class="single_page_chapter_header">Beschreibung</h2>
         <div class="single_page_item">
-            <h2 class="single_page_item_header">Beschreibung</h2>
             <div class="single_page_item_body standard_text align_justify">
                 {{ project.description_1 | safe}}
             </div>
         </div>
         <div class="single_page_item">
-            <h2 class="single_page_item_header"></h2>
             <div class="single_page_item_body standard_text align_justify">
                 {{ project.description_2 | safe}}
             </div>
         </div>
         <div class="single_page_item">
-            <h2 class="single_page_item_header"></h2>
             <div class="single_page_item_body standard_text align_justify">
                 {{ project.description_3 | safe}}
             </div>
         </div>
         <div class="single_page_item">
-            <h2 class="single_page_item_header"></h2>
             <div class="single_page_item_body standard_text align_justify">
                 {{ project.description_4 | safe}}
             </div>
         </div>
         <div class="single_page_item">
-            <h2 class="single_page_item_header"></h2>
             <div class="single_page_item_body standard_text align_justify">
-                {{ project.description_5 | safe}}
+                {{ project.description_5 | safe }}
             </div>
         </div>
         <div class="single_page_item">
-            <h2 class="single_page_item_header"></h2>
             <div class="single_page_item_body standard_text align_justify">
                 {{ project.description_6 | safe}}
             </div>
         </div>
-        <div class="single_page_item">
-            <h2 class="single_page_item_header">Quelle</h2>
-            <div class="single_page_item_body standard_text">
-                {{ project.source }}
-            </div>
-        </div>
-        <div class="single_page_item">
-            <h2 class="single_page_item_header">GitHub</h2>
-            <div class="single_page_item_body standard_text">
-                {{ project.github }}
-            </div>
-        </div>
-        <div class="single_page_item">
-            <h2 class="single_page_item_header">Videos</h2>
-            <div class="single_page_item_body">
-                <div class="videos_wrapper">
-                    <div class="video_item">{{ project.video_1 | safe }}</div>
-                    <div class="video_item">{{ project.video_2 | safe }}</div>
-                    <div class="video_item">{{ project.video_3 | safe }}</div>
+
+        <h2 class="single_page_chapter_header">Ergebnis</h2>
+        <div class="single_page_item {{ project.result_1_css_class }}">
+            <h3 class="single_page_item_header">{{ project.result_1_title }} </h3>
+                <div class="single_page_item_body standard_text align_justify">
+                    {{ project.result_1_body | safe}}
                 </div>
+        </div>
+        <div class="single_page_item {{ project.result_2_css_class }}">
+            <h3 class="single_page_item_header">{{ project.result_2_title | safe }}</h3>
+                <div class="single_page_item_body standard_text align_justify">
+                    {{ project.result_2_body | safe}}
+                </div>
+        </div>
+        <div class="single_page_item {{ project.result_3_css_class }}">
+            <h3 class="single_page_item_header">{{ project.result_3_title | safe }}</h3>
+                <div class="single_page_item_body standard_text align_justify">
+                    {{ project.result_3_body | safe}}
+                </div>
+        </div>
+        <div class="single_page_item {{ project.result_4_css_class }}">
+            <h3 class="single_page_item_header">{{ project.result_4_title | safe }}</h3>
+                <div class="single_page_item_body standard_text align_justify">
+                    <img src="/{{ project.result_4_body}}" alt="Ergebnis">
+                </div>
+        </div>
+        <div class="single_page_item {{ project.result_5_css_class }}">
+            <h3 class="single_page_item_header">{{ project.result_5_title | safe }}</h3>
+                <div class="single_page_item_body standard_text align_justify">
+                    <img src="/{{ project.result_5_body}}" alt="Ergebnis">
+                </div>
+        </div>
+        <div class="single_page_item {{ project.result_6_css_class }}">
+            <h3 class="single_page_item_header">{{ project.result_6_title | safe }}</h3>
+                <div class="single_page_item_body standard_text align_justify">
+                    <img src="/{{ project.result_6_body}}" alt="Ergebnis">
+                </div>
+        </div>
+
+        <div class="single_page_item">
+            <div class="single_page_item_body standard_text align_justify github_project_link">
+                <a href="{{ project.github }}"></a>
             </div>
         </div>
+
         <div class="single_page_item">
-            <h2 class="single_page_item_header">Notizen</h2>
-            <div class="single_page_item_body standard_text align_justify">
-                {{ project.notice }}
-            </div>
-        </div>
-        <div class="single_page_item">
-            <div class="single_page_item_header">Hinzugefügt</div>
             <div class="single_page_item_body standard_text">
-                {{ project.date.date() }}
+                Datum: {{ project.date.date() }}
             </div>
         </div>
     </div>

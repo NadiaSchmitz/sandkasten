@@ -10,7 +10,7 @@ login
 }
 
 input {
-    width: 100%;
+    width: 70%;
     box-sizing: border-box;
     border: 1px solid #19a5c8;
     font-family: 'Roboto Condensed', sans-serif;
@@ -37,8 +37,7 @@ input::placeholder {
 
 textarea {
     width: 100%;
-    height: 300px;
-    resize: none;
+    height: 100px;
     overflow: hidden;
     box-sizing: border-box;
     border: 1px solid #19a5c8;

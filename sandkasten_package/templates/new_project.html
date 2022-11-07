@@ -17,7 +17,7 @@ Neues Projekt
                    type="text"
                    placeholder="Titel hinzufügen" autofocus required>
 
-            <p class="standard_text">Fügen Sie den Bild-Link hinzu</p>
+            <p class="standard_text">Fügen Sie den Bild-Link static/images/... hinzu</p>
             <input id="project_capture"
                    class="standard_text"
                    name="capture"
@@ -25,47 +25,153 @@ Neues Projekt
                    placeholder="Bild-Link hinzufügen" autofocus required>
 
             <p class="standard_text">Fügen Sie eine Beschreibung hinzu</p>
+            <div class="comment_wrapper">
+                <p class="standard_text comment_text">Es stehen 6 Bereiche zu Verfügung, um das Projekt zu beschreiben. Man kann die für den folgenden Inhalt benutzen:</p>
+                <ul class="standard_text comment_text">
+                    <li>Text</li>
+                    <li>Links im Format "a href="http://..."</li>
+                    <li>Links im Format "a href="static/images/..."</li>
+                    <li>Links im Format "a href="static/files/..."</li>
+                    <li>Video aus Youtube "iframe"</li>
+                </ul>
+            </div>
             <textarea id="project_description_1"
                    class="standard_text"
                    name="description_1"
                    placeholder="Beschreibung hinzufügen" required></textarea>
 
-            <p class="standard_text">Fügen Sie eine Beschreibung hinzu</p>
             <textarea id="project_description_2"
                    class="standard_text"
                    name="description_2"
                    placeholder="Beschreibung hinzufügen"></textarea>
 
-            <p class="standard_text">Fügen Sie eine Beschreibung hinzu</p>
             <textarea id="project_description_3"
                    class="standard_text"
                    name="description_3"
                    placeholder="Beschreibung hinzufügen"></textarea>
 
-            <p class="standard_text">Fügen Sie eine Beschreibung hinzu</p>
             <textarea id="project_description_4"
                    class="standard_text"
                    name="description_4"
                    placeholder="Beschreibung hinzufügen"></textarea>
 
-            <p class="standard_text">Fügen Sie eine Beschreibung hinzu</p>
             <textarea id="project_description_5"
                    class="standard_text"
                    name="description_5"
                    placeholder="Beschreibung hinzufügen"></textarea>
 
-            <p class="standard_text">Fügen Sie eine Beschreibung hinzu</p>
             <textarea id="project_description_6"
                    class="standard_text"
                    name="description_6"
                    placeholder="Beschreibung hinzufügen"></textarea>
 
-            <p class="standard_text">Fügen Sie die Quelle-Link hinzu</p>
-            <input id="project_source"
+            <p class="standard_text">Fügen Sie ein Ergebnis hinzu</p>
+            <div class="comment_wrapper">
+                <p class="standard_text comment_text">Es stehen 6 Bereiche zu Verfügung, um das Ergebnis zu präsentieren. Jeder besteht aus 3 Bestandteilen:</p>
+                <ul class="standard_text comment_text">
+                    <li>Titel</li>
+                    <li>CSS Klasse (result_text, result_video, result_image, result_file)</li>
+                    <li>Beschreibung</li>
+                </ul>
+                <p class="standard_text comment_text">Für die Beschreibung kann man den folgenden Inhalt benutzen: </p>
+                <ul class="standard_text comment_text">
+                    <li>Text</li>
+                    <li>Links im Format "a href="http://..."</li>
+                    <li>Links im Format "a href="static/images/..."</li>
+                    <li>Links im Format "a href="static/files/..."</li>
+                    <li>Video aus Youtube "iframe"</li>
+                </ul>
+            </div>
+
+            <input id="project_result_1_title"
                    class="standard_text"
-                   name="source"
+                   name="result_1_title"
                    type="text"
-                   placeholder="Quelle-Link hinzufügen">
+                   placeholder="Title hinzufügen" required>
+            <input id="project_result_1_css_class"
+                   class="standard_text"
+                   name="result_1_css_class"
+                   type="text"
+                   placeholder="CSS Klasse hinzufügen" required>
+            <textarea id="project_result_1_body"
+                   class="standard_text"
+                   name="result_1_body"
+                   placeholder="Ergebnis hinzufügen"></textarea>
+
+            <input id="project_result_2_title"
+                   class="standard_text"
+                   name="result_2_title"
+                   type="text"
+                   placeholder="Title hinzufügen">
+            <input id="project_result_2_css_class"
+                   class="standard_text"
+                   name="result_2_css_class"
+                   type="text"
+                   placeholder="CSS Klasse hinzufügen">
+            <textarea id="project_result_2_body"
+                   class="standard_text"
+                   name="result_2_body"
+                   placeholder="Ergebnis hinzufügen"></textarea>
+
+            <input id="project_result_3_title"
+                   class="standard_text"
+                   name="result_3_title"
+                   type="text"
+                   placeholder="Title hinzufügen">
+            <input id="project_result_3_css_class"
+                   class="standard_text"
+                   name="result_3_css_class"
+                   type="text"
+                   placeholder="CSS Klasse hinzufügen">
+            <textarea id="project_result_3_body"
+                   class="standard_text"
+                   name="result_3_body"
+                   placeholder="Ergebnis hinzufügen"></textarea>
+
+            <input id="project_result_4_title"
+                   class="standard_text"
+                   name="result_4_title"
+                   type="text"
+                   placeholder="Title hinzufügen">
+            <input id="project_result_4_css_class"
+                   class="standard_text"
+                   name="result_4_css_class"
+                   type="text"
+                   placeholder="CSS Klasse hinzufügen">
+            <textarea id="project_result_4_body"
+                   class="standard_text"
+                   name="result_4_body"
+                   placeholder="Ergebnis hinzufügen"></textarea>
+
+            <input id="project_result_5_title"
+                   class="standard_text"
+                   name="result_5_title"
+                   type="text"
+                   placeholder="Title hinzufügen">
+            <input id="project_result_5_css_class"
+                   class="standard_text"
+                   name="result_5_css_class"
+                   type="text"
+                   placeholder="CSS Klasse hinzufügen">
+            <textarea id="project_result_5_body"
+                   class="standard_text"
+                   name="result_5_body"
+                   placeholder="Ergebnis hinzufügen"></textarea>
+
+            <input id="project_result_6_title"
+                   class="standard_text"
+                   name="result_6_title"
+                   type="text"
+                   placeholder="Title hinzufügen">
+            <input id="project_result_6_css_class"
+                   class="standard_text"
+                   name="result_6_css_class"
+                   type="text"
+                   placeholder="CSS Klasse hinzufügen">
+            <textarea id="project_result_6_body"
+                   class="standard_text"
+                   name="result_6_body"
+                   placeholder="Ergebnis hinzufügen"></textarea>
 
             <p class="standard_text">Fügen Sie den Github-Link hinzu</p>
             <input id="project_github"
@@ -73,33 +179,6 @@ Neues Projekt
                    name="github"
                    type="text"
                    placeholder="Github-Link hinzufügen">
-
-            <p class="standard_text">Fügen Sie den Video-Link hinzu</p>
-            <input id="project_video_1"
-                   class="standard_text"
-                   name="video_1"
-                   type="text"
-                   placeholder="Video-Link hinzufügen">
-
-            <p class="standard_text">Fügen Sie den Video-Link hinzu</p>
-            <input id="project_video_2"
-                   class="standard_text"
-                   name="video_2"
-                   type="text"
-                   placeholder="Video-Link hinzufügen">
-
-            <p class="standard_text">Fügen Sie den Video-Link hinzu</p>
-            <input id="project_video_3"
-                   class="standard_text"
-                   name="video_3"
-                   type="text"
-                   placeholder="Video-Link hinzufügen">
-
-            <p class="standard_text">Fügen Sie Ihre Notizen hinzu</p>
-            <textarea id="project_notice"
-                   class="standard_text"
-                   name="notice"
-                   placeholder="Notizen hinzufügen"></textarea>
 
             <input type="submit" class="button_page button_page_left" value="Speichern">
         </form>

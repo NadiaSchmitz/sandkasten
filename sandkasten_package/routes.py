@@ -55,7 +55,10 @@ def projects():
 @app.route('/projects/<int:id>')
 def project_page(id):
     project = Project.query.get(id)
-    return render_template('project_page.html', project=project, menu=menu)
+    return render_template('project_page.html',
+                           title='Project',
+                           project=project,
+                           menu=menu)
 
 
 @app.route('/technology')
@@ -159,12 +162,25 @@ def new_project():
         description_4 = request.form['description_4']
         description_5 = request.form['description_5']
         description_6 = request.form['description_6']
-        source = request.form['source']
+        result_1_title = request.form['result_1_title']
+        result_1_css_class = request.form['result_1_css_class']
+        result_1_body = request.form['result_1_body']
+        result_2_title = request.form['result_2_title']
+        result_2_css_class = request.form['result_2_css_class']
+        result_2_body = request.form['result_2_body']
+        result_3_title = request.form['result_3_title']
+        result_3_css_class = request.form['result_3_css_class']
+        result_3_body = request.form['result_3_body']
+        result_4_title = request.form['result_4_title']
+        result_4_css_class = request.form['result_4_css_class']
+        result_4_body = request.form['result_4_body']
+        result_5_title = request.form['result_5_title']
+        result_5_css_class = request.form['result_5_css_class']
+        result_5_body = request.form['result_5_body']
+        result_6_title = request.form['result_6_title']
+        result_6_css_class = request.form['result_6_css_class']
+        result_6_body = request.form['result_6_body']
         github = request.form['github']
-        video_1 = request.form['video_1']
-        video_2 = request.form['video_2']
-        video_3 = request.form['video_3']
-        notice = request.form['notice']
 
         project = Project(title=title,
                           capture=capture,
@@ -174,12 +190,26 @@ def new_project():
                           description_4=description_4,
                           description_5=description_5,
                           description_6=description_6,
-                          source=source,
                           github=github,
-                          video_1=video_1,
-                          video_2=video_2,
-                          video_3=video_3,
-                          notice=notice)
+                          result_1_title=result_1_title,
+                          result_1_css_class=result_1_css_class,
+                          result_1_body=result_1_body,
+                          result_2_title=result_2_title,
+                          result_2_css_class=result_2_css_class,
+                          result_2_body=result_2_body,
+                          result_3_title=result_3_title,
+                          result_3_css_class=result_3_css_class,
+                          result_3_body=result_3_body,
+                          result_4_title=result_4_title,
+                          result_4_css_class=result_4_css_class,
+                          result_4_body=result_4_body,
+                          result_5_title=result_5_title,
+                          result_5_css_class=result_5_css_class,
+                          result_5_body=result_5_body,
+                          result_6_title=result_6_title,
+                          result_6_css_class=result_6_css_class,
+                          result_6_body=result_6_body)
+
         print('Projekt wurde gespeichert')
         try:
             db.session.add(project)
