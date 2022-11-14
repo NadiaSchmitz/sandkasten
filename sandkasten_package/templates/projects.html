@@ -19,18 +19,18 @@ Projects
                     </div>
                 </div>
                 <div class="project_item_body">
-                    <div class="project_item_title standard_text bold_text">
+                    <div class="project_item_title standard_text bold_text align_center">
                         <a href="/projects/{{ item.id }}">{{ item.title }}</a>
                     </div>
                     <p class="standard_text align_justify">
                         {{ item.description_1 }}
                     </p>
                     <div class="project_item_footer">
-                    <span class="project_item_date standard_text bold_text">
-                        {{ item.date.date() }}
-                    </span>
-                    <a href="/projects/{{ item.id }}" class="standard_text bold_text align_right">Zum Projekt</a>
-                </div>
+                        <span class="project_item_date standard_text bold_text">
+                            {{ item.date.date() }}
+                        </span>
+                        <a href="/projects/{{ item.id }}" class="standard_text bold_text align_right">Zum Projekt</a>
+                    </div>
                 </div>
             </div>
 

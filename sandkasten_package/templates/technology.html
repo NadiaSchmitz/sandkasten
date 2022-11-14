@@ -6,7 +6,7 @@ Technologie
 
 {% block body %}
 
-<div class="content_body page_pattern">
+<div class="content_body technology_page_content page_pattern">
     <h1 class="content_header">Technologie</h1>
     <div class="technology_wrapper">
 
@@ -14,18 +14,21 @@ Technologie
 
             <div class="technology_item">
                 <div class="technology_item_header">
-                    <div class="technology_item_logo standard_text">
-                        <img src="{{ item.logo }}" alt="{{ item.title }}"/>
-                    </div>
-                    <div class="technology_item_title standard_text bold_text">
-                        {{ item.title }}
-                    </div>
+                    <a href='{{ item.link }}'
+                       class="technology_item_capture"
+                       style="background-image: url(/{{ item.logo }})">
+                    </a>
                 </div>
-                <div class="technology_item_body standard_text technology_item_description">
-                    {{ item.description }}
+                <div class="technology_item_body">
+                    <div class="technology_item_title standard_text bold_text align_center">
+                        <a href="{{ item.link }}">{{ item.title }}</a>
+                    </div>
+                    <p class="standard_text align_justify">
+                        {{ item.description }}
+                    </p>
                 </div>
-                <div class="technology_item_link standard_text">
-                    <a href="{{ item.link }}" class="standard_text bold_text technology_item_link">{{ item.title }}</a>
+                <div class="technology_item_link standard_text bold_text align_right">
+                    <a href="{{ item.link }}">Mehr lesen</a>
                 </div>
             </div>
 

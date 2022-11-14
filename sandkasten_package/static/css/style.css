@@ -137,6 +137,10 @@ header .first_line {
     font-weight: 700;
 }
 
+.align_center {
+    text-align: center;
+}
+
 .align_right {
     text-align: right;
 }
@@ -202,7 +206,41 @@ footer {
     padding: 30px;
 }
 
+footer p,
+footer .social_media {
+    display: inline-block;
+    vertical-align: top;
+}
+
 footer p {
+    width: 70%;
     color: #ffffff;
+    line-height: 30px;
+}
+
+footer .social_media {
+    width: calc(100% - 70% - 5px);
+}
+
+.social_media_item {
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 20px 0 0;
+}
+
+.social_media_item:last-of-type {
+    margin: 0;
+}
+
+.social_media_item_github {
+    background-image: url('/static/images/icon_github.png');
+}
+
+.social_media_item_youtube {
+    background-image: url('/static/images/icon_youtube.png');
 }
 
